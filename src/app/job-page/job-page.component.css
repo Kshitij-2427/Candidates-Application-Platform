@@ -1,0 +1,195 @@
+nav {
+  color: rgb(45, 45, 45);
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px 0px 6px 6px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
+.navbar-left {
+  font-size: 1.2rem;
+}
+
+.name {
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+
+.additional-content {
+  margin-top: 20px;
+  padding: 2px;
+  background-color: #aff8ab;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  width: 80%;
+  margin-left: 140px;
+  font-size: 14px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.additional-content p {
+  margin-left: 50px;
+}
+
+.job-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.job-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 30px;
+  margin-left: 100px;
+}
+
+.job-card {
+  display: flex;
+  /* flex-direction: row; */
+  align-items: flex-start;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 26px;
+  width: 25%;
+}
+
+.logo-container {
+  width: 100px;
+  margin-right: 16px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.salary-info {
+  margin-top: 16px;
+}
+
+.apply-button {
+  width: 100%;
+  background-color: #55efc4;
+  color: #000;
+  font-weight: 500;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.company-name {
+  color: gray;
+  font-weight: 400;
+  margin: 0px;
+  font-size: 16px;
+}
+
+.role {
+  color: rgb(9, 9, 9);
+  font-weight: 100;
+  margin: 0px;
+  font-size: 14px;
+}
+
+.location {
+  color: rgb(9, 9, 9);
+  font-weight: 100;
+  margin: 0px;
+  font-size: 12px;
+}
+
+.salary-range {
+  color: rgb(63, 62, 62);
+  font-weight: 50;
+  margin: 0px;
+  font-size: 14px;
+}
+
+.description {
+  margin-top: 16px;
+}
+
+.company-description p {
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.experience-info {
+  margin-top: 4px;
+}
+
+.experience-info h4 {
+  font-size: 14px;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.experience-info p {
+  font-size: 14px;
+  margin-bottom: 16px;
+  margin-top: 0px;
+}
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-top-color: #007bff;
+  animation: spin 2s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.company-description span {
+  cursor: pointer;
+  color: #007bff;
+  font-size: 12px;
+}
+
+.filters {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.filters input[type="text"],
+.filters input[type="number"],
+.filters select {
+  padding: 8px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 210px;
+}
+
+.filters input::placeholder,
+.filters select::placeholder {
+  color: #999;
+}

@@ -1,0 +1,152 @@
+<nav>
+  <div class="navbar-left">
+    <img src="../../assets/hand.svg" alt="Hand Icon" width="22" height="22" />
+    <span class="name">Kshitij</span>
+  </div>
+</nav>
+
+<div class="additional-content">
+  <div>
+    <p>
+      We, at Weekday, are creating a go-to hub for uncovering the real issues
+      candidates should be aware of before joining a company.
+      <a
+        target="_blank"
+        rel="noopener"
+        href="https://www.weekday.works/companies-work-culture-database"
+      >
+        Access 150+ company reviews here
+      </a>
+    </p>
+  </div>
+</div>
+
+<div class="filters">
+   <!-- Filter by Company Name -->
+  <input
+    type="text"
+    placeholder="Search by Company Name"
+    (input)="applyCompanyFilter($event)"
+  />
+
+   <!-- Filter by Min Exp. -->
+  <select #minExpSelect (change)="applyExperienceFilter(minExpSelect.value)">
+    <option value="">Select Minimum Experience</option>
+    <option *ngFor="let exp of experienceOptions" [value]="exp">
+      {{ exp }} years
+    </option>
+  </select>
+
+   <!-- Filter by Location -->
+  <input
+    type="text"
+    placeholder="Search by Location"
+    (input)="applyLocationFilter($event)"
+  />
+
+  <!-- Filter by Location Type -->
+  <select #locationFilter (change)="applyLocationFilters(locationFilter.value)">
+    <option value="">Select Location Type</option>
+    <option value="Remote">Remote</option>
+    <option value="On-Site">On-Site</option>
+  </select>
+
+   <!-- Filter by Role-->
+  <input
+    type="text"
+    placeholder="Search By Role"
+    (input)="applyRoleFilter($event)"
+  />
+
+  <!-- Filter by Min Base Pay -->
+  <input
+    type="number"
+    placeholder="Search by Min Base Pay (LPA)"
+    (input)="applyMinBasePayFilter($event)"
+  />
+</div>
+
+
+
+ <!-- Main Job List Rendering through API Endpoint -->
+<div class="job-list">
+  <div class="job-card-container">
+    <div *ngFor="let job of filteredJobs; let i = index" class="job-card">
+      <div class="logo-container">
+        <img
+          class="logo"
+          [src]="job.logoUrl"
+          [alt]="job.companyName + ' logo'"
+        />
+      </div>
+
+      <div class="job-details">
+        <div>
+          <p class="company-name">{{ job.companyName }}</p>
+          <p class="role">{{ job.jobRole }}</p>
+          <p class="location">
+            {{ job.location
+            }}<span *ngIf="job.minExp !== null && job.maxExp !== null">
+              | Exp: {{ job.minExp }}-{{ job.maxExp }} years</span
+            >
+          </p>
+        </div>
+        <div class="salary-info">
+          <p class="salary-range">
+            Estimated Salary:
+            {{
+              job.minJdSalary
+                ? "₹" + job.minJdSalary + " - ₹" + job.maxJdSalary
+                : "₹" + job.maxJdSalary
+            }}
+            LPA<span aria-label="Offered salary range" class=""> ✅</span>
+          </p>
+        </div>
+        <div class="description">
+          <h4>About Company:</h4>
+          <div class="company-description">
+            <p><strong>About us</strong></p>
+            <p
+              [innerHTML]="
+                showFullDescription[i]
+                  ? job.jobDetailsFromCompany
+                  : (job.jobDetailsFromCompany | truncate : 150)
+              "
+            ></p>
+            <span
+              *ngIf="
+                job.jobDetailsFromCompany.length > 150 &&
+                !showFullDescription[i]
+              "
+            >
+              ...
+              <a href="javascript:void(0);" (click)="toggleDescription(i)"
+                >Show more</a
+              >
+            </span>
+            <span *ngIf="showFullDescription[i]">
+              <a href="javascript:void(0);" (click)="toggleDescription(i)"
+                >Show less</a
+              >
+            </span>
+          </div>
+        </div>
+
+        <div class="experience-info">
+          <h4>Minimum Experience</h4>
+          <p>{{ job.minExp }} years</p>
+        </div>
+        <div>
+          <button class="apply-button" tabindex="0" type="button">
+            ⚡ Easy Apply
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading-indicator">
+  <div class="loading-spinner"></div>
+  <span>Loading more jobs...</span>
+</div>
