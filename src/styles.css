@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+/* Global styles (styles.css or styles.scss) */
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 400; /* Regular font weight */
+  src: local('Lexend Regular'), local('Lexend-Regular'),
+       url('/path/to/lexend-regular.woff2') format('woff2'); /* Update path accordingly */
+}
+
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 700; /* Bold font weight */
+  src: local('Lexend Bold'), local('Lexend-Bold'),
+       url('/path/to/lexend-bold.woff2') format('woff2'); /* Update path accordingly */
+}
+
+body {
+  font-family: 'Lexend', sans-serif; /* Use Lexend font with fallback to sans-serif */
+}
