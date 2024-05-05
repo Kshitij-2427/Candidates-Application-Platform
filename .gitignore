@@ -2,4 +2,27 @@
 node_modules/
 
 # Ignore package-lock.json file
+package-lock.
+
+# Ignore Angular cache and temporary build artifacts
+
+# Node.js and npm cache files
+.npm
+.node_modules
+.npmrc
 package-lock.json
+yarn.lock
+
+# Angular build artifacts
+dist/
+node_modules/
+*.log
+/coverage/
+/e2e/*.log
+/e2e/*.png
+/e2e/*.xml
+/e2e/*.html
+/e2e/*.json
+/e2e/*.txt
+/e2e/*.svg
+
